@@ -1,0 +1,44 @@
+.row {
+  height: 80px;
+  border-bottom: 1px solid #16191e;
+}
+td {
+  color: #fff;
+  font-size: 0.5rem;
+  text-align: left;
+  font-weight: 600;
+}
+.symbol {
+  display: flex;
+  align-items: center;
+  justify-content: left;
+  cursor: pointer;
+}
+.symbol img {
+  width: 25px;
+}
+.symbol span {
+  color: #b0b0b0;
+}
+.symbol span {
+  margin-left: 4px;
+}
+
+.success {
+  color: #00ff00;
+}
+.error {
+  color: #ff0000;
+}
+.chart {
+  width: 60px;
+}
+
+@media (min-width: 650px) {
+  td {
+    font-size: 1rem;
+  }
+  .chart {
+    width: 100px;
+  }
+}

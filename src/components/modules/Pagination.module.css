@@ -1,0 +1,40 @@
+.container {
+  width: 100%;
+  height: 100px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: auto;
+  margin-bottom: 50px;
+  padding: 10px;
+}
+.container button {
+  width: 80px;
+  height: 30px;
+  background-color: #2e78f9;
+  border-radius: 5px;
+  border: none;
+  font-weight: 600;
+  color: #fff;
+  cursor: pointer;
+}
+.container p {
+  border: 1px solid #2e78f9;
+  width: 25px;
+  text-align: center;
+  border-radius: 5px;
+  cursor: pointer;
+}
+.disabled {
+  opacity: 0.3;
+  cursor: none;
+}
+.selected {
+  background-color: #2e78f9;
+}
+
+@media (min-width: 650px) {
+  .container {
+    width: 400px;
+  }
+}
