@@ -1,7 +1,7 @@
 import TabeleRow from "./TabeleRow";
 import styles from "./TabeleCoin.module.css";
 
-function TabeleCoin({ coins, currency }) {
+function TabeleCoin({ coins, currency, setChart }) {
   return (
     <div className={styles.container}>
       <table className={styles.table}>
@@ -17,7 +17,12 @@ function TabeleCoin({ coins, currency }) {
         </thead>
         <tbody>
           {coins.map((coin) => (
-            <TabeleRow coin={coin} key={coin.id} currency={currency} />
+            <TabeleRow
+              coin={coin}
+              key={coin.id}
+              currency={currency}
+              setChart={setChart}
+            />
           ))}
         </tbody>
       </table>

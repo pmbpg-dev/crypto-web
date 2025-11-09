@@ -12,11 +12,17 @@ function TabeleRow({
     price_change_percentage_24h: price_change,
   },
   currency,
+  setChart,
 }) {
   return (
     <tr className={styles.row}>
       <td>
-        <div className={styles.symbol}>
+        <div
+          className={styles.symbol}
+          onClick={() => {
+            setChart(true);
+          }}
+        >
           <img src={image} />
           <span>{symbol.toUpperCase()}</span>
         </div>

@@ -20,4 +20,19 @@ const getCoinList = async (page, currency) => {
   }
 };
 
-export { getCoinList };
+const searchCoin = async (query, { signal }) => {
+  try {
+    const res = await fetch(`${BASE_URL}/search?query=${query}`, {
+      ...OPTIONS,
+      signal,
+    });
+    const data = await res.json();
+    return data;
+  } catch (err) {
+    if (err.name !== "AbortError") {
+      return err.message;
+    }
+  }
+};
+
+export { getCoinList, searchCoin };
