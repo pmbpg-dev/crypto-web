@@ -13,7 +13,7 @@ function HomePage() {
   const [isLoading, setIsLoading] = useState(true);
   const [page, setPage] = useState(1);
   const [currency, setCurrency] = useState("usd");
-  const [chart, setChart] = useState(false);
+  const [chart, setChart] = useState(null);
 
   //==============get coins list from api==================
   useEffect(() => {
@@ -53,7 +53,7 @@ function HomePage() {
         <TabeleCoin coins={coins} currency={currency} setChart={setChart} />
       )}
       <Pagination page={page} setPage={setPage} />
-      {!!chart && <Chart setChart={setChart} />}
+      {!!chart && <Chart setChart={setChart} chart={chart} />}
     </div>
   );
 }

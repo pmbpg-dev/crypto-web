@@ -1,28 +1,28 @@
 import chartUp from "../../assets/chart-up.svg";
 import chartDown from "../../assets/chart-down.svg";
 import styles from "./TabeleRow.module.css";
+import { marketChart } from "../../services/cryptoApi";
 
-function TabeleRow({
-  coin: {
+function TabeleRow({ coin, currency, setChart }) {
+  const {
+    id,
     name,
     image,
     symbol,
     total_volume,
     current_price,
     price_change_percentage_24h: price_change,
-  },
-  currency,
-  setChart,
-}) {
+  } = coin;
+
+  const showChartHandler = async () => {
+    const data = await marketChart(id);
+    setChart({ ...data, coin });
+  };
+
   return (
     <tr className={styles.row}>
       <td>
-        <div
-          className={styles.symbol}
-          onClick={() => {
-            setChart(true);
-          }}
-        >
+        <div className={styles.symbol} onClick={showChartHandler}>
           <img src={image} />
           <span>{symbol.toUpperCase()}</span>
         </div>

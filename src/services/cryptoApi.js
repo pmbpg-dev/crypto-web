@@ -5,6 +5,7 @@ const OPTIONS = {
   body: undefined,
 };
 
+// ===================get coin list data========================
 const getCoinList = async (page, currency) => {
   try {
     const response = await fetch(
@@ -20,6 +21,7 @@ const getCoinList = async (page, currency) => {
   }
 };
 
+// ==================search coin list====================
 const searchCoin = async (query, { signal }) => {
   try {
     const res = await fetch(`${BASE_URL}/search?query=${query}`, {
@@ -35,4 +37,19 @@ const searchCoin = async (query, { signal }) => {
   }
 };
 
-export { getCoinList, searchCoin };
+// ================get coin chart from api================
+
+const marketChart = async (coin) => {
+  try {
+    const res = await fetch(
+      `${BASE_URL}/coins/${coin}/market_chart?vs_currency=usd&days=1`,
+      OPTIONS
+    );
+    const data = await res.json();
+    return data;
+  } catch (err) {
+    console.log(err.message);
+  }
+};
+
+export { getCoinList, searchCoin, marketChart };
